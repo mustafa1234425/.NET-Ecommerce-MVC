@@ -1,0 +1,333 @@
+﻿
+@{
+    ViewBag.Title = "Faq";
+}
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="~/Template/assets/css/vendor.css" rel="stylesheet" />
+    <link href="~/Template/assets/css/style.css" rel="stylesheet" />
+    <title>Our Faq's For Your Common Questions - Shopio </title>
+    <style>
+        :root {
+            --primary-color: #F76B6A;
+            --secondary-color: #F76B6A;
+            --btn-primary-border-radius: 0.25rem;
+            --btn-primary-color: #fff;
+            --btn-primary-background-color: #F76B6A;
+            --btn-primary-border-color: #F76B6A;
+            --btn-primary-hover-color: #fff;
+            --btn-primary-background-hover-color: #F76B6A;
+            --btn-primary-border-hover-color: #F76B6A;
+            --btn-primary-font-weight: 500;
+            --btn-secondary-border-radius: 0.25rem;
+            --btn-secondary-color: #00234D;
+            --btn-secondary-background-color: transparent;
+            --btn-secondary-border-color: #00234D;
+            --btn-secondary-hover-color: #fff;
+            --btn-secondary-background-hover-color: #F76B6A;
+            --btn-secondary-border-hover-color: #F76B6A;
+            --btn-secondary-font-weight: 500;
+            --heading-color: #000;
+            --heading-font-family: 'Poppins', sans-serif;
+            --heading-font-weight: 700;
+            --title-color: #000;
+            --title-font-family: 'Poppins', sans-serif;
+            --title-font-weight: 400;
+            --body-color: #000;
+            --body-background-color: #fff;
+            --body-font-family: 'Poppins', sans-serif;
+            --body-font-size: 14px;
+            --body-font-weight: 400;
+            --section-heading-color: #000;
+            --section-heading-font-family: 'Poppins', sans-serif;
+            --section-heading-font-size: 48px;
+            --section-heading-font-weight: 600;
+            --section-subheading-color: #000;
+            --section-subheading-font-family: 'Poppins', sans-serif;
+            --section-subheading-font-size: 16px;
+            --section-subheading-font-weight: 400;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .body-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        #theonlymenu {
+            position: fixed;
+            top: 123px;
+            width: 100vw;
+        }
+
+        #thesecondmenu {
+            background-color: white;
+        }
+
+        .site-navigation ul.main-menu li a:hover {
+            text-decoration: none;
+        }
+
+        .footer-menu-item a:hover {
+            color: white;
+        }
+
+        #themodel {
+            border-radius: 8px;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+
+        .modal-content.newsletter-modal-content {
+            position: fixed;
+            left: 170px;
+            width: 830px;
+            max-width: none;
+        }
+
+        .newletter-modal-form {
+            width: 750px;
+            max-width: none;
+            margin-bottom: 50px;
+        }
+
+        .newsletter-input-box {
+            width: 750px;
+            max-width: none;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-wrapper" style="width: 100vw;position:relative;right:130px;">
+        <main id="MainContent" class="content-for-layout">
+            <div class="faq-section mt-100 overflow-hidden">
+                <div class="faq-inner">
+                    <div class="container">
+                        <div class="section-header text-center">
+                            <h2 class="section-heading">Frequently Asked Question</h2>
+                            <p class="section-subheading">All Your Questions About Shopio Answered </p>
+                        </div>
+                        <div class="faq-container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            How can I track my order?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq1" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                To track your order, simply go to the "Order Tracking" page on our website and enter your order details. You will be able to see the status and location of your package.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            What payment methods do we accept?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq2" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                We accept various payment methods, including credit/debit cards, PayPal, and online banking. Choose the option that suits you best during the checkout process.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            Do you offer international shipping?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq3" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                Yes, we offer international shipping to many countries. Please check the shipping information on the product page or contact our customer support for more details.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq4">
+                                            What is your return policy?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq4" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                We have a hassle-free return policy. If you are not satisfied with your purchase, you can initiate a return within 30 days of receiving the product. Please ensure the item is in its original condition and packaging.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq5">
+                                            How long does it take to process my refund?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq5" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                Once we receive your returned item, we will inspect it and process your refund within 7-10 business days. The refund will be issued to your original payment method.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq6">
+                                            Can I cancel my order?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq6" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                Yes, you can cancel your order if it has not been shipped yet. Please contact our customer support as soon as possible with your order details.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            How can I contact customer support?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq1" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                You can reach our customer support team through email, phone, or live chat. Visit the "Contact Us" page on our website for the contact details. We are available to assist you during our business hours.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.02) 0px 48px 100px 0px;">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            What is the estimated delivery time for my order?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq2" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                The estimated delivery time depends on your location and the shipping method chosen. Typically, orders are delivered within 5-7 business days. However, please note that unforeseen circumstances or peak seasons may cause slight delays.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color:white">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            Are my personal and payment details secure?
+                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq3" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                Yes, we prioritize the security of your personal and payment information. We use advanced encryption technology to ensure that your data is protected during transmission. Additionally, we adhere to strict privacy policies and do not share your information with third parties.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="faq-item rounded" style="background-color:white">
+                                        <h2 class="faq-heading heading_18 collapsed d-flex align-items-center justify-content-between"
+                                            data-bs-toggle="collapse" data-bs-target="#faq4">
+                                            Can I change or modify my order after it has been placed?                                            <span class="faq-heading-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="#F76B6A" stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="icon icon-down">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                        </h2>
+                                        <div id="faq4" class="accordion-collapse collapse">
+                                            <p class="faq-body text_14">
+                                                Unfortunately, once an order has been placed, it cannot be modified online. However, if you need to make any changes, please contact our customer support as soon as possible, and we will assist you to the best of our ability.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>

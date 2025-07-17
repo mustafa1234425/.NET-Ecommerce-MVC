@@ -1,0 +1,212 @@
+﻿@using System.Web.Mvc.Html
+@model ClickNBuy.Models.tbl_user
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <title>Your Profile @Model.u_name - Shopio The Best Ecommerce Store In Town</title>
+    <style>
+        /* CSS styling for the user profile page */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            display: none;
+        }
+
+        .circle-img {
+            width: 70px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .profile-card {
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .right-section {
+            flex-grow: 1;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 30px;
+            padding-right: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-username {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .profile-details-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-details-label {
+            font-size: 14px;
+        }
+
+        .profile-details-value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .profile-input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            background-color: transparent;
+        }
+
+        .profile-actions {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #thecontainer {
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+            padding: 25px;
+        }
+
+        #thefirsta {
+            color:black;
+        }
+
+        #thefirsta:hover {
+            color:#F76B6A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="background-color: white; box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;border-radius:15px;">
+
+        <div class="profile-card">
+            <div class="left-section">
+                <div class="profile-info">
+                    <img class="profile-picture" src="@Url.Content(Model.u_image)" alt="Profile Picture" />
+                    <div class="profile-username">@Model.u_name</div>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="profile-details">
+                    <div class="profile-details-item">
+                        <div class="profile-details-label">Contact:</div>
+                        <div class="profile-details-value">
+                            <input type="text" class="profile-input" value="@Model.u_contact" readonly />
+                        </div>
+                    </div>
+                    <div class="profile-details-item">
+                        <div class="profile-details-label">Password:</div>
+                        <div class="profile-details-value">
+                            <input type="password" class="profile-input" value="@Model.u_password" readonly />
+                        </div>
+                    </div>
+                    <div class="profile-details-item">
+                        <div class="profile-details-label">Email:</div>
+                        <div class="profile-details-value">
+                            <input type="email" class="profile-input" value="@Model.u_email" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    @if (Session["u_id"] != null)
+                    {
+                        <div style="margin-top:20px;">
+                            <a href="@Url.Action("Edit_Profile", "User", new { id = Model.u_id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("Logout", "User", new { id = Model.u_id })" class="btn btn-primary">Logout</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        @if (ViewBag.ShowAdsTable)
+        {
+            <h4 style="text-align:center;margin-bottom:20px;font-weight:500;margin-top:30px;">@Model.u_name Active <span style="color:#F76B6A"> Advertisements</span></h4>
+            <div class="center-card" style="border: none;">
+                <div class="table-responsive" style="height: 400px; overflow-y: scroll;padding:25px;">
+                    <table class="table table-borderless bg-white text-black customtable">
+                        <thead>
+                            <tr>
+                                <td style="font-weight:500;">Product Name</td>
+                                <td style="font-weight:500;">Description</td>
+                                <td style="font-weight:500;">Image</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ad in ViewBag.UserAds)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ProductDetails", "User", new { id = @ad.pro_id })" id="thefirsta">@ad.pro_name</a>
+                                    </td>
+                                    <td>@ad.pro_desc</td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(ad.pro_image))
+                                        {
+                                            string[] imagePaths = ad.pro_image.Split(',');
+                                            <img src="@Url.Content(imagePaths[0])" alt="Product Image" style="width: 50px; height: 50px;" class="circle-img" />
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

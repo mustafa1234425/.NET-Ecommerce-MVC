@@ -1,0 +1,126 @@
+﻿<head>
+    <!-- Include the necessary CSS files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <link href="/Template/assets/css/vendor.css" rel="stylesheet">
+    <link href="/Template/assets/css/style.css" rel="stylesheet">
+
+    <!-- Include the necessary JavaScript files -->
+    <!-- Include jQuery library first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Include Fancybox library after jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+    <!-- Include other JavaScript files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script src="/Template/assets/js/main.js"></script>
+    <script src="/Template/assets/js/vendor.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <title>Your Searched Results - Shopio</title>
+    <style>
+        :root {
+            --primary-color: #F76B6A;
+            --secondary-color: #F76B6A;
+            --btn-primary-border-radius: 0.25rem;
+            --btn-primary-color: #fff;
+            --btn-primary-background-color: #F76B6A;
+            --btn-primary-border-color: #F76B6A;
+            --btn-primary-hover-color: #fff;
+            --btn-primary-background-hover-color: #F76B6A;
+            --btn-primary-border-hover-color: #F76B6A;
+            --btn-primary-font-weight: 500;
+            --btn-secondary-border-radius: 0.25rem;
+            --btn-secondary-color: #00234D;
+            --btn-secondary-background-color: transparent;
+            --btn-secondary-border-color: #00234D;
+            --btn-secondary-hover-color: #fff;
+            --btn-secondary-background-hover-color: #F76B6A;
+            --btn-secondary-border-hover-color: #F76B6A;
+            --btn-secondary-font-weight: 500;
+            --heading-color: #000;
+            --heading-font-family: 'Poppins', sans-serif;
+            --heading-font-weight: 700;
+            --title-color: #000;
+            --title-font-family: 'Poppins', sans-serif;
+            --title-font-weight: 400;
+            --body-color: #000;
+            --body-background-color: #fff;
+            --body-font-family: 'Poppins', sans-serif;
+            --body-font-size: 14px;
+            --body-font-weight: 400;
+            --section-heading-color: #000;
+            --section-heading-font-family: 'Poppins', sans-serif;
+            --section-heading-font-size: 48px;
+            --section-heading-font-weight: 600;
+            --section-subheading-color: #000;
+            --section-subheading-font-family: 'Poppins', sans-serif;
+            --section-subheading-font-size: 16px;
+            --section-subheading-font-weight: 400;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #theonlymenu {
+            position: fixed;
+            top: 153px;
+            width: 100vw;
+        }
+
+        #thesecondmenu {
+            background-color: white;
+        }
+
+        .site-navigation ul.main-menu li a:hover {
+            text-decoration: none;
+        }
+
+        .footer-menu-item a:hover {
+            color: white;
+        }
+
+        #themodel {
+            border-radius: 8px;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+
+        .modal-content.newsletter-modal-content {
+            position: fixed;
+            left: 170px;
+            width: 830px;
+            max-width: none;
+        }
+
+        .thediv {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-wrapper">
+        <div class="collection-product-container">
+            <div class="row">
+                <div class="thediv">
+                    <h3> Sorry, @Session["u_name"] Product Not Found🚫 </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

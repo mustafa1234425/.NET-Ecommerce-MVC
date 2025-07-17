@@ -1,0 +1,521 @@
+﻿<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90a0d7efa7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emoji-datasource-apple/15.0.0/emoji.json" />
+    <title>Shopio About Us - Who We Are?</title>
+    <style>
+        :root {
+            --primary-color: #F76B6A;
+            --secondary-color: #F76B6A;
+            --btn-primary-border-radius: 0.25rem;
+            --btn-primary-color: #fff;
+            --btn-primary-background-color: #F76B6A;
+            --btn-primary-border-color: #F76B6A;
+            --btn-primary-hover-color: #fff;
+            --btn-primary-background-hover-color: #F76B6A;
+            --btn-primary-border-hover-color: #F76B6A;
+            --btn-primary-font-weight: 500;
+            --btn-secondary-border-radius: 0.25rem;
+            --btn-secondary-color: #00234D;
+            --btn-secondary-background-color: transparent;
+            --btn-secondary-border-color: #00234D;
+            --btn-secondary-hover-color: #fff;
+            --btn-secondary-background-hover-color: #F76B6A;
+            --btn-secondary-border-hover-color: #F76B6A;
+            --btn-secondary-font-weight: 500;
+            --heading-color: #000;
+            --heading-font-family: 'Poppins', sans-serif;
+            --heading-font-weight: 700;
+            --title-color: #000;
+            --title-font-family: 'Poppins', sans-serif;
+            --title-font-weight: 400;
+            --body-color: #000;
+            --body-background-color: #fff;
+            --body-font-family: 'Poppins', sans-serif;
+            --body-font-size: 14px;
+            --body-font-weight: 400;
+            --section-heading-color: #000;
+            --section-heading-font-family: 'Poppins', sans-serif;
+            --section-heading-font-size: 48px;
+            --section-heading-font-weight: 600;
+            --section-subheading-color: #000;
+            --section-subheading-font-family: 'Poppins', sans-serif;
+            --section-subheading-font-size: 16px;
+            --section-subheading-font-weight: 400;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #theonlymenu {
+            position: fixed;
+            top: 153px;
+            width: 100vw;
+        }
+
+        #thesecondmenu {
+            background-color: white;
+        }
+
+        .site-navigation ul.main-menu li a:hover {
+            text-decoration: none;
+        }
+
+        .footer-menu-item a:hover {
+            color: white;
+        }
+
+        #themodel {
+            border-radius: 8px;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+
+        .modal-content.newsletter-modal-content {
+            position: fixed;
+            left: 170px;
+            width: 830px;
+            max-width: none;
+        }
+
+        .newletter-modal-form {
+            width: 750px;
+            max-width: none;
+            margin-bottom: 50px;
+        }
+
+        .newsletter-input-box {
+            width: 750px;
+            max-width: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sec-title {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 60px;
+        }
+
+            .sec-title .title {
+                position: relative;
+                display: block;
+                font-size: 18px;
+                line-height: 24px;
+                color: #00aeef;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+
+            .sec-title h2 {
+                position: relative;
+                display: block;
+                font-size: 40px;
+                line-height: 1.28em;
+                color: #222222;
+                font-weight: 600;
+                padding-bottom: 18px;
+            }
+
+                .sec-title h2:before {
+                    position: absolute;
+                    content: '';
+                    left: 0px;
+                    bottom: 0px;
+                    width: 50px;
+                    height: 3px;
+                    background-color: #d1d2d6;
+                }
+
+            .sec-title .text {
+                position: relative;
+                font-size: 16px;
+                line-height: 26px;
+                color: #848484;
+                font-weight: 400;
+                margin-top: 35px;
+            }
+
+            .sec-title.light h2 {
+                color: #ffffff;
+            }
+
+            .sec-title.text-center h2:before {
+                left: 50%;
+                margin-left: -25px;
+            }
+
+        .list-style-one {
+            position: relative;
+        }
+
+            .list-style-one li {
+                position: relative;
+                font-size: 16px;
+                line-height: 26px;
+                color: #222222;
+                font-weight: 400;
+                padding-left: 35px;
+                margin-bottom: 12px;
+            }
+
+                .list-style-one li:before {
+                    content: "\f058";
+                    position: absolute;
+                    left: 0;
+                    top: 0px;
+                    display: block;
+                    font-size: 18px;
+                    padding: 0px;
+                    font-weight: 600;
+                    -webkit-font-smoothing: antialiased;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1.6;
+                }
+
+                .list-style-one li a:hover {
+                    color: #44bce2;
+                }
+
+        .btn-style-one {
+            position: relative;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 30px;
+            color: #ffffff;
+            padding: 10px 30px;
+            font-weight: 600;
+            overflow: hidden;
+            letter-spacing: 0.02em;
+            background-color: #00aeef;
+        }
+
+            .btn-style-one:hover {
+                background-color: #0794c9;
+                color: #ffffff;
+            }
+
+        .about-section {
+            position: relative;
+            padding: 120px 0 70px;
+        }
+
+            .about-section .sec-title {
+                margin-bottom: 45px;
+            }
+
+            .about-section .content-column {
+                position: relative;
+                margin-bottom: 50px;
+            }
+
+                .about-section .content-column .inner-column {
+                    position: relative;
+                    padding-left: 30px;
+                }
+
+            .about-section .text {
+                margin-bottom: 20px;
+                font-size: 16px;
+                line-height: 26px;
+                color: #848484;
+                font-weight: 400;
+            }
+
+            .about-section .list-style-one {
+                margin-bottom: 45px;
+            }
+
+            .about-section .btn-box {
+                position: relative;
+            }
+
+                .about-section .btn-box a {
+                    padding: 15px 50px;
+                }
+
+            .about-section .image-column {
+                position: relative;
+            }
+
+                .about-section .image-column .text-layer {
+                    position: absolute;
+                    right: -110px;
+                    top: 50%;
+                    font-size: 325px;
+                    line-height: 1em;
+                    margin-top: -175px;
+                    font-weight: 500;
+                }
+
+                .about-section .image-column .inner-column {
+                    position: relative;
+                    padding-left: 80px;
+                    padding-bottom: 0px;
+                }
+
+                    .about-section .image-column .inner-column .author-desc {
+                        position: absolute;
+                        bottom: 16px;
+                        z-index: 1;
+                        background: orange;
+                        padding: 10px 15px;
+                        left: 96px;
+                        width: calc(100% - 152px);
+                        border-radius: 50px;
+                    }
+
+                        .about-section .image-column .inner-column .author-desc h2 {
+                            font-size: 21px;
+                            letter-spacing: 1px;
+                            text-align: center;
+                            color: #fff;
+                            margin: 0;
+                        }
+
+                        .about-section .image-column .inner-column .author-desc span {
+                            font-size: 16px;
+                            letter-spacing: 6px;
+                            text-align: center;
+                            color: #fff;
+                            display: block;
+                            font-weight: 400;
+                        }
+
+                    .about-section .image-column .inner-column:before {
+                        content: '';
+                        position: absolute;
+                        width: calc(50% + 80px);
+                        height: calc(100% + 160px);
+                        top: -80px;
+                        left: -3px;
+                        background: transparent;
+                        z-index: 0;
+                        border: 44px solid #00aeef;
+                    }
+
+                .about-section .image-column .image-1 {
+                    position: relative;
+                }
+
+                .about-section .image-column .image-2 {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+
+                    .about-section .image-column .image-2 img,
+                    .about-section .image-column .image-1 img {
+                        box-shadow: 0 30px 50px rgba(8,13,62,.15);
+                        border-radius: 46px;
+                    }
+
+                .about-section .image-column .video-link {
+                    position: absolute;
+                    left: 70px;
+                    top: 170px;
+                }
+
+                    .about-section .image-column .video-link .link {
+                        position: relative;
+                        display: block;
+                        font-size: 22px;
+                        color: #191e34;
+                        font-weight: 400;
+                        text-align: center;
+                        height: 100px;
+                        width: 100px;
+                        line-height: 100px;
+                        background-color: #ffffff;
+                        border-radius: 50%;
+                        box-shadow: 0 30px 50px rgba(8,13,62,.15);
+                        -webkit-transition: all 300ms ease;
+                        -moz-transition: all 300ms ease;
+                        transition: all 300ms ease;
+                    }
+
+        .theimg:hover {
+            margin: 10px;
+            padding: 10px;
+            transition: 0.15s;
+        }
+
+        .thesecondimg:hover {
+            padding: 20px;
+            transition: 0.15s;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-wrapper">
+        <main id="MainContent" class="content-for-layout">
+            <div class="about-page">
+                <!-- about hero start -->
+                <div class="about-hero mt-100">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-12">
+                                <div class="about-hero-content" style="margin-top:-20px;">
+                                    <h2 class="about-hero-title">How Shopio Works?</h2>
+                                    <p class="about-hero-subtitle">
+                                        At Shopio, we are dedicated to providing expert services and establishing long-term relationships with our valued customers.
+                                    </p>
+                                    <ul class="about-hero-action p-0">
+                                        <li class="action-item d-flex">
+                                            <div class="action-count">01</div>
+                                            <div class="action-content">
+                                                <h4 class="action-title"><a href="#">Placing Order</a></h4>
+                                                <p class="action-subtitle">Customer Have Wide Range of Categories & Products, Just Place Your Favourite Product.</p>
+                                            </div>
+                                        </li>
+                                        <li class="action-item d-flex">
+                                            <div class="action-count">02</div>
+                                            <div class="action-content">
+                                                <h4 class="action-title"><a href="#">Getting Shipped</a></h4>
+                                                <p class="action-subtitle">Our Staff Shipped The Product Within One Day With Maintaining The Quality of Our Product. </p>
+                                            </div>
+                                        </li>
+                                        <li class="action-item d-flex">
+                                            <div class="action-count">03</div>
+                                            <div class="action-content">
+                                                <h4 class="action-title"><a href="#">Product Delivered</a></h4>
+                                                <p class="action-subtitle">We Deliver The Product At Customer Doorstep Without Any Address Issues & Inconvenience .</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12" style="margin-top:30px;">
+                                <div class="about-hero-img">
+                                    <img src="/Template/assets/img/about/the-about-hero.png" alt="img" class="theimg" style="position:relative;top:60px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- about hero end -->
+                <section class="about-section" style="margin-top: 70px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="content-column col-lg-6 col-md-12 col-sm-12" style="margin-bottom:130px;">
+                                <div class="inner-column">
+                                    <div class="sec-title">
+                                        <span class="title" style="color: #F76B6A; position: relative; right: 20px; ">About Shopio</span>
+                                        <h2 style="position:relative;right:20px;">
+                                            Shopio, Elevate Your Online Shopping Experience
+                                        </h2>
+                                    </div>
+                                    <div class="text" style="position:relative;right:20px;">
+                                        I am Mehroz Khan, the founder of Shopio. With a passion for ecommerce,
+                                        I have been working tirelessly to create a seamless online shopping experience for customers like you.
+                                        Over the past few years, Shopio has evolved into a leading destination for all your shopping needs.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Column -->
+                            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-column wow fadeInLeft">
+                                    <figure class="image-1"><img title="Founder of Shopio, Mehroz Khan" src="~/Template/assets/img/people/bloggerend.png" alt="" style="border-radius:12px;" class="thesecondimg"></figure>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sec-title" style="margin-top:150px;">
+                            <span class="title" style="color:#F76B6A">Our Future Goal</span>
+                            <h2>We Want to Lead in Business & Tech</h2>
+                        </div>
+                        <div class="text">
+                            At Shopio, we are committed to providing top-notch solutions for your online store. Our team specializes in crafting attractive and efficient websites and web applications. We take pride in creating useful plugins that enhance the functionality and aesthetics of your website.
+                        </div>
+                        <div class="text">
+                            Our mission is to empower you with the latest trends and techniques in web development. We strive to deliver next-level tutorials that align with your expertise and help you stay ahead in the industry. Shopio serves as a comprehensive learning platform, offering high-quality content related to web development, along with tutorials on various plugins.
+                        </div>
+                        <div class="text">
+                            We leverage Many Programming Languages to build this dynamic website. Additionally, our team of professionals utilizes tools like Photoshop and Adobe Illustrator to create inspirational UI design layouts.
+                        </div>
+                        <div class="text">
+                            Shopio, Dedicated to providing exceptional service and ensuring your satisfaction. We are excited to embark on this journey with you and make your online shopping experience truly remarkable.
+                        </div>
+                    </div>
+                </section>
+                <!-- about service start -->
+                <div class="about-service pt-100" style="background:white;">
+                    <div class="container" style="box-shadow: rgba(17, 12, 46, 0.03) 0px 48px 100px 0px; border-radius: 10px;">
+                        <div class="section-header about-service-header text-center" data-aos="fade-up" data-aos-duration="700">
+                            <h2 class="section-heading" style="position:relative;top:50px;">Services we provide to our valued customers</h2>
+                        </div>
+                        <div class="about-service-wrapper">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 col-md-6 col-12 py-4" data-aos="fade-up" data-aos-duration="1000">
+                                    <div class="about-service-inner text-center">
+                                        <div class="about-service-icon" style="background-color: #f7504f; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;">
+                                            <i class="fa-solid fa-truck-fast" style="font-size:25px;color:white"></i>
+                                        </div>
+                                        <div class="about-service-content">
+                                            <h4 class="about-service-title">Fast Reliable Shipping</h4>
+                                            <p class="about-service-subtitle">
+                                                Timely Delivery of Products For Your Convenience.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-12 py-4" data-aos="fade-up" data-aos-duration="1400">
+                                    <div class="about-service-inner text-center">
+                                        <div class="about-service-icon" style="background-color: #f7504f; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;">
+                                            <i class="fa-solid fa-users" style="font-size:25px;color:white"></i>
+                                        </div>
+                                        <div class="about-service-content">
+                                            <h4 class="about-service-title">User-friendly Website</h4>
+                                            <p class="about-service-subtitle">
+                                                Smooth Browsing And Effortless Shopping.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-12 py-4" data-aos="fade-up" data-aos-duration="1700">
+                                    <div class="about-service-inner text-center">
+                                        <div class="about-service-icon" style="background-color: #f7504f; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; ">
+                                            <i class="fa-solid fa-wallet" style="font-size:25px;color:white"></i>
+                                        </div>
+                                        <div class="about-service-content">
+                                            <h4 class="about-service-title">Secure Payments</h4>
+                                            <p class="about-service-subtitle">
+                                                Protecting Your Personal And Financial Data.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- about service end -->
+                <!-- about banner start -->
+                <div class="about-banner mt-100" data-aos="fade-up" data-aos-duration="700" style="border-radius:16px;height:440px;">
+                    <div class="container">
+                        <div class="about-banner-wrapper" style="height:440px;width:550px;">
+                            <div class="about-banner-content">
+                                <p class="about-banner-text heading_48" style="line-height:50px;width:380px;">Get in Touch With Us For Your Service Related Query</p>
+                                <a href="@Url.Action("Contact","User")" class="btn-primary" style="margin-top:15px;">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- about banner end -->
+            </div>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/Template/assets/js/vendor.js"></script>
+    <script src="~/Template/assets/js/main.js"></script>
+</body>

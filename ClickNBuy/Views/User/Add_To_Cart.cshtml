@@ -1,0 +1,104 @@
+﻿@model List<ClickNBuy.Models.Cart>
+<head>
+    <title>
+        Your Cart - Shopio
+    </title>
+</head>
+
+<main id="MainContent" class="content-for-layout">
+    <div class="cart-page mt-100">
+        <div class="container">
+            <div class="cart-page-wrapper">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 col-12">
+                        <table class="cart-table w-100">
+                            <thead>
+                                <tr>
+                                    <th class="cart-caption heading_18">Product</th>
+                                    <th class="cart-caption heading_18"></th>
+                                    <th class="cart-caption text-center heading_18 d-none d-md-table-cell">Quantity</th>
+                                    <th class="cart-caption text-end heading_18">Price</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @if (Model != null && Model.Count > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr class="cart-item">
+                                            <td class="cart-item-media">
+                                                <div class="mini-img-wrapper">
+                                                    @if (!string.IsNullOrEmpty(item.pro_image))
+                                                    {
+                                                        var imagePaths = item.pro_image.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                                        var firstImagePath = Url.Content(imagePaths[0]);
+                                                        <img src="@firstImagePath" height="250" width="250" class="mini-img" />
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td class="cart-item-details">
+                                                <h2 class="product-title"><a href="#">@item.pro_name</a></h2>
+                                                @*<p class="product-vendor">XS / @item.pro_description</p>*@
+                                            </td>
+                                            <td class="cart-item-quantity">
+                                                <div class="quantity d-flex align-items-center justify-content-between">
+                                                    <button class="qty-btn dec-qty" data-id="@item.pro_id"><img src="/Template/assets/img/icon/minus.svg" alt="minus"></button>
+                                                    <input class="qty-input" type="number" name="qty" value="@item.o_qty" min="0">
+                                                    <button class="qty-btn inc-qty" data-id="@item.pro_id"><img src="/Template/assets/img/icon/plus.svg" alt="plus"></button>
+                                                </div>
+                                                <a href="@Url.Action("Remove_From_Cart", "User", new { id = item.pro_id })" class="product-remove mt-2">Remove</a>
+                                            </td>
+                                            <td class="cart-item-price text-end">
+                                                <div class="product-price">@item.o_bill</div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4" class="text-center">No items in the shopping cart.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-12">
+                        <div class="cart-total-area">
+                            <h3 class="cart-total-title d-none d-lg-block mb-0">Cart Totals</h3>
+                            <div class="cart-total-box mt-4">
+                                <!-- Calculate the subtotal, shipping, discount, and total dynamically in your controller -->
+                                <div class="subtotal-item subtotal-box">
+                                    <h4 class="subtotal-title">Subtotals:</h4>
+                                    <p class="subtotal-value">@Model.Sum(item => item.o_bill)/PKR</p>
+                                </div>
+                                @*<div class="subtotal-item shipping-box">
+                                    <h4 class="subtotal-title">Shipping:</h4>
+                                    <p class="subtotal-value">@ViewBag.Shipping</p>
+                                </div>
+                                <div class="subtotal-item discount-box">
+                                    <h4 class="subtotal-title">Discount:</h4>
+                                    <p class="subtotal-value">@ViewBag.Discount</p>
+                                </div>*@
+                                <hr />
+                                <div class="subtotal-item total-box">
+                                    <h4 class="subtotal-title">Total:</h4>
+                                    <p class="subtotal-value" id="totalValue">
+                                        @Model.Sum(item => item.o_bill)/PKR
+                                    </p>
+                                </div>
+                                <p class="shipping_text">Shipping & taxes calculated at checkout</p>
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="#" class="position-relative btn-primary text-uppercase">
+                                        Proceed to checkout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

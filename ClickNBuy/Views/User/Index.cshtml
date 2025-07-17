@@ -1,0 +1,606 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<ClickNBuy.Models.tbl_category>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90a0d7efa7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home - Shopio The Best Ecommerce Store in Town </title>
+    <style>
+        :root {
+            --primary-color: #F76B6A;
+            --secondary-color: #F76B6A;
+            --btn-primary-border-radius: 0.25rem;
+            --btn-primary-color: #fff;
+            --btn-primary-background-color: #F76B6A;
+            --btn-primary-border-color: #F76B6A;
+            --btn-primary-hover-color: #fff;
+            --btn-primary-background-hover-color: #F76B6A;
+            --btn-primary-border-hover-color: #F76B6A;
+            --btn-primary-font-weight: 500;
+            --btn-secondary-border-radius: 0.25rem;
+            --btn-secondary-color: #00234D;
+            --btn-secondary-background-color: transparent;
+            --btn-secondary-border-color: #00234D;
+            --btn-secondary-hover-color: #fff;
+            --btn-secondary-background-hover-color: #F76B6A;
+            --btn-secondary-border-hover-color: #F76B6A;
+            --btn-secondary-font-weight: 500;
+            --heading-color: #000;
+            --heading-font-family: 'Poppins', sans-serif;
+            --heading-font-weight: 700;
+            --title-color: #000;
+            --title-font-family: 'Poppins', sans-serif;
+            --title-font-weight: 400;
+            --body-color: #000;
+            --body-background-color: #fff;
+            --body-font-family: 'Poppins', sans-serif;
+            --body-font-size: 14px;
+            --body-font-weight: 400;
+            --section-heading-color: #000;
+            --section-heading-font-family: 'Poppins', sans-serif;
+            --section-heading-font-size: 48px;
+            --section-heading-font-weight: 600;
+            --section-subheading-color: #000;
+            --section-subheading-font-family: 'Poppins', sans-serif;
+            --section-subheading-font-size: 16px;
+            --section-subheading-font-weight: 400;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Remove horizontal scrollbar */
+        }
+
+        h4 {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            box-shadow: rgba(149, 157, 165, 0.1) 0px 2px 20px;
+            border-color: white;
+            transition: 0.2s;
+        }
+
+            .card:hover {
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            }
+
+        .slideshow-section {
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: -15px;
+            width: 100vw;
+            overflow: hidden; /* Hide any overflowing content */
+        }
+
+        .slide-item {
+            width: 100%;
+        }
+
+        #thefirstlink {
+            color: black;
+            background-color: white;
+            border-color: white;
+        }
+
+            #thefirstlink:hover {
+                background-color: #F76B6A;
+                color: white;
+                border-color: #F76B6A;
+            }
+
+        .newsletter-btn {
+            position: relative;
+            left: 180px;
+            background-color: #F76B6A;
+        }
+
+        .scroll-vertical {
+            overflow-y: auto;
+            max-height: 200px;
+        }
+
+            .scroll-vertical::-webkit-scrollbar {
+                width: 0.1rem;
+            }
+
+            .scroll-vertical::-webkit-scrollbar-track {
+                background-color: #ffffff; /* white */
+            }
+
+            .scroll-vertical::-webkit-scrollbar-thumb {
+                background-color: rgba(149, 157, 165, 0.1);
+                border-radius: 5px;
+            }
+    </style>
+</head>
+<body>
+    <main id="MainContent" class="content-for-layout">
+        <!-- slideshow start -->
+        <div class="slideshow-section position-relative">
+            <div class="slideshow-active activate-slider" data-slick='{
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "dots": true,
+                    "arrows": true,
+                    "responsive": [
+                        {
+                        "breakpoint": 768,
+                        "settings": {
+                            "arrows": false
+                        }
+                        }
+                    ]
+                }'>
+                <div class="slide-item slide-item-bag position-relative">
+                    <img class="slide-img d-none d-md-block" src="/Template/assets/img/slideshow/THEONLYBANNER1.png" alt="slide-3">
+                    <div class="content-absolute content-slide">
+                        <div class="container height-inherit d-flex align-items-center">
+                            <div class="content-box slide-content py-4">
+                                @*<h2 class="slide-heading heading_72 animate__animated animate__fadeInUp text-white"
+                                    data-animation="animate__animated animate__fadeInUp" style="font-size:60px;">
+                                    ELECTRONICS
+                                </h2>
+                                <p class="slide-subheading heading_18 animate__animated animate__fadeInUp text-white"
+                                   data-animation="animate__animated animate__fadeInUp">
+                                    Look For Reliable Products?
+                                </p>
+                                <a class="btn-primary slide-btn animate__animated animate__fadeInUp"
+                                   href="collection-left-sidebar.html"
+                                   data-animation="animate__animated animate__fadeInUp" style="margin-top:-5px;background-color:#F76B6A;color:white;border-color:black;">
+                                    SHOP
+                                    NOW
+                                </a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-item slide-item-bag position-relative">
+                    <img class="slide-img d-none d-md-block" src="/Template/assets/img/slideshow/THEKHTMBANNER2.png" alt="slide-3">
+                    <div class="content-absolute content-slide">
+                        <div class="container height-inherit d-flex align-items-center">
+                            <div class="content-box slide-content py-4">
+                                @*<h2 class="slide-heading heading_72 animate__animated animate__fadeInUp"
+                                    data-animation="animate__animated animate__fadeInUp">
+                                    MEN'S SHOES
+                                </h2>
+                                <p class="slide-subheading heading_18 animate__animated animate__fadeInUp"
+                                   data-animation="animate__animated animate__fadeInUp">
+                                    Look for your inspiration here
+                                </p>
+                                <a class="btn-primary slide-btn animate__animated animate__fadeInUp"
+                                   href="collection-left-sidebar.html"
+                                   data-animation="animate__animated animate__fadeInUp" style="margin-top:-5px;">
+                                    SHOP
+                                    NOW
+                                </a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-item slide-item-bag position-relative">
+                    <img class="slide-img d-none d-md-block" src="/Template/assets/img/slideshow/THEONLYBANNER3.png" alt="slide-3">
+                    <div class="content-absolute content-slide">
+                        <div class="container height-inherit d-flex align-items-center">
+                            <div class="content-box slide-content py-4">
+                                @*<h2 class="slide-heading heading_72 animate__animated animate__fadeInUp"
+                                    data-animation="animate__animated animate__fadeInUp">
+                                    MEN'S SHOES
+                                </h2>
+                                <p class="slide-subheading heading_18 animate__animated animate__fadeInUp"
+                                   data-animation="animate__animated animate__fadeInUp">
+                                    Look for your inspiration here
+                                </p>
+                                <a class="btn-primary slide-btn animate__animated animate__fadeInUp"
+                                   href="collection-left-sidebar.html"
+                                   data-animation="animate__animated animate__fadeInUp" style="margin-top:-5px;">
+                                    SHOP
+                                    NOW
+                                </a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="activate-arrows arrows-white"></div>
+            <div class="activate-dots dot-tools"></div>
+        </div>
+    </main>
+    <!-- slideshow end -->
+
+    <!-- trusted badge start -->
+    <div class="trusted-section mt-100 overflow-hidden">
+        <div class="trusted-section-inner">
+            <div class="container">
+                <div class="row justify-content-center trusted-row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="trusted-badge bg-trust-1 rounded">
+                            <div class="trusted-icon">
+                                <img class="icon-trusted" src="/Template/assets/img/trusted/1.png" alt="icon-1">
+                            </div>
+                            <div class="trusted-content">
+                                <h2 class="heading_18 trusted-heading">Free Shipping & Return</h2>
+                                <p class="text_16 trusted-subheading trusted-subheading-2">
+                                    On all order over
+                                    $99.00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="trusted-badge bg-trust-2 rounded">
+                            <div class="trusted-icon">
+                                <img class="icon-trusted" src="/Template/assets/img/trusted/2.png" alt="icon-2">
+                            </div>
+                            <div class="trusted-content">
+                                <h2 class="heading_18 trusted-heading">Customer Support 24/7</h2>
+                                <p class="text_16 trusted-subheading trusted-subheading-2">
+                                    Instant access to
+                                    support
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="trusted-badge bg-trust-3 rounded">
+                            <div class="trusted-icon">
+                                <img class="icon-trusted" src="/Template/assets/img/trusted/3.png" alt="icon-3">
+                            </div>
+                            <div class="trusted-content">
+                                <h2 class="heading_18 trusted-heading">100% Secure Payment</h2>
+                                <p class="text_16 trusted-subheading trusted-subheading-2">
+                                    We ensure secure
+                                    payment!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- trusted badge end -->
+
+    <!-- collection start -->
+    <div class="featured-collection mt-100 overflow-hidden">
+        <div class="collection-tab-inner">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-heading">Popular Categories</h2>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a href="@Url.Action("Create_Ad", "User")" class="btn-primary" style="margin-bottom:25px;margin-top:25px;background-color:#F76B6A;outline:none;border:none">Create Your Ad</a>
+                </div>
+
+                @{
+                    var categoryList = new SelectList(Model, "cat_id", "cat_name");
+                }
+
+                @using (Html.BeginForm("DisplayAdd", "User", FormMethod.Post))
+                {
+                    <div class="text-center">
+                        <div class="dropdown" style="display: inline-block; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border-radius: 8px;">
+                            @Html.DropDownList("id", categoryList, "Select a category", new { @class = "form-control", @style = "border-color:white;height:40px;" })
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="background-color:#F76B6A">Go</button>
+                    </div>
+                }
+
+                <div class="row">
+                    @if (Model != null)
+                    {
+                        int categoryCount = 0; // Variable to track the number of displayed categories
+
+                        foreach (var item in Model)
+                        {
+                            if (categoryCount >= 4)
+                            {
+                                break; // Exit the loop if 4 categories have been displayed
+                            }
+
+                            <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <a class="hover-switch" href="@Url.Action("DisplayAdd", "User", new { id = item.cat_id })">
+                                            <img class="secondary-img" src="@Url.Content(item.cat_image)" alt="product-img">
+                                            <img class="primary-img" src="@Url.Content(item.cat_image)" alt="product-img">
+                                        </a>
+
+                                        <div class="product-card-action product-card-action-2 justify-content-center">
+                                            <!-- Action buttons -->
+                                        </div>
+                                    </div>
+                                    <div class="product-card-details">
+                                        <ul class="color-lists list-unstyled d-flex align-items-center">
+                                            <!-- Color lists -->
+                                        </ul>
+                                        <h3 class="product-card-title">
+                                            <a href="collection-left-sidebar.html">@Html.ActionLink(item.cat_name, "DisplayAdd", new { id = item.cat_id }, new { style = "text-decoration:none;color:#001629;" })</a>
+                                        </h3>
+                                        <div class="product-card-price">
+                                            <span class="card-price-regular">NEW</span>
+                                            <span class="card-price-compare text-decoration-line-through">OUTOFSTOCK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            categoryCount++; // Increment the category count
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- collection end -->
+    @*<nav aria-label="..." style="margin-top: 50px;">
+            <ul class="pagination pagination-md justify-content-center">
+                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                    <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" id="thefirstlink">Previous</a>
+                </li>
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                        <a class="page-link" href="@Url.Action("Index", new { page = i })" id="thefirstlink">@i</a>
+                    </li>
+                }
+                <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                    <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" id="thefirstlink">Next</a>
+                </li>
+            </ul>
+        </nav>*@
+
+    <!-- banner start -->
+    <div class="banner-section mt-100 overflow-hidden">
+        <div class="banner-section-inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-12" data-aos="fade-right" data-aos-duration="1200">
+                        <a class="banner-item position-relative rounded" href="collection-left-sidebar.html">
+                            <img class="banner-img" src="/Template/assets/img/banner/theshoe-1.png" alt="banner-1">
+                            <div class="content-absolute content-slide">
+                                <div class="container height-inherit d-flex align-items-center">
+                                    <div class="content-box banner-content p-4">
+                                        <p class="heading_18 mb-3 text-white">Electronics & Tech</p>
+                                        <h2 class="heading_34 text-white">25% Off on <br>IPhones</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12" data-aos="fade-left" data-aos-duration="1200">
+                        <a class="banner-item position-relative rounded" href="collection-left-sidebar.html">
+                            <img class="banner-img" src="/Template/assets/img/banner/theshoe.png" alt="banner-2">
+                            <div class="content-absolute content-slide">
+                                <div class="container height-inherit d-flex align-items-center">
+                                    <div class="content-box banner-content p-4">
+                                        <p class="heading_18 mb-3 text-white">Electronics & Tech</p>
+                                        <h2 class="heading_34 text-white">30% Off on <br>Android</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
+    
+    <!-- instagram start -->
+    <div class="instagram-section mt-100 overflow-hidden home-section">
+        <div class="instagram-inner">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="section-icon">
+                        <svg width="54" height="54" viewBox="0 0 20 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.99998 2.62165C12.4031 2.62165 12.6877 2.6308 13.6367 2.6741C14.5142 2.71415 14.9908 2.86077 15.3079 2.98398C15.728 3.14725 16.0278 3.34231 16.3428 3.65723C16.6577 3.97215 16.8528 4.272 17.016 4.69206C17.1392 5.00923 17.2859 5.48577 17.3259 6.36323C17.3692 7.31228 17.3783 7.5969 17.3783 10C17.3783 12.4031 17.3692 12.6878 17.3259 13.6368C17.2859 14.5143 17.1392 14.9908 17.016 15.308C16.8528 15.728 16.6577 16.0279 16.3428 16.3428C16.0278 16.6577 15.728 16.8528 15.3079 17.016C14.9908 17.1393 14.5142 17.2859 13.6367 17.3259C12.6879 17.3692 12.4032 17.3784 9.99998 17.3784C7.59672 17.3784 7.3121 17.3692 6.36323 17.3259C5.48574 17.2859 5.00919 17.1393 4.69206 17.016C4.27196 16.8528 3.97212 16.6577 3.6572 16.3428C3.34227 16.0279 3.14721 15.728 2.98398 15.308C2.86073 14.9908 2.71411 14.5143 2.67406 13.6368C2.63076 12.6878 2.62162 12.4031 2.62162 10C2.62162 7.5969 2.63076 7.31228 2.67406 6.36326C2.71411 5.48577 2.86073 5.00923 2.98398 4.69206C3.14721 4.272 3.34227 3.97215 3.6572 3.65723C3.97212 3.34231 4.27196 3.14725 4.69206 2.98398C5.00919 2.86077 5.48574 2.71415 6.36319 2.6741C7.31224 2.6308 7.59687 2.62165 9.99998 2.62165ZM9.99998 1C7.55571 1 7.24926 1.01036 6.28931 1.05416C5.33133 1.09789 4.67712 1.25001 4.10462 1.47251C3.51279 1.70251 3.01088 2.01025 2.51055 2.51058C2.01021 3.01092 1.70247 3.51283 1.47247 4.10466C1.24997 4.67716 1.09785 5.33137 1.05412 6.28935C1.01032 7.24926 1 7.55575 1 10C1 12.4443 1.01032 12.7508 1.05412 13.7107C1.09785 14.6687 1.24997 15.3229 1.47247 15.8954C1.70247 16.4872 2.01021 16.9891 2.51055 17.4895C3.01088 17.9898 3.51279 18.2975 4.10462 18.5275C4.67712 18.75 5.33133 18.9021 6.28931 18.9459C7.24926 18.9897 7.55571 19 9.99998 19C12.4443 19 12.7507 18.9897 13.7107 18.9459C14.6686 18.9021 15.3228 18.75 15.8953 18.5275C16.4872 18.2975 16.9891 17.9898 17.4894 17.4895C17.9898 16.9891 18.2975 16.4872 18.5275 15.8954C18.75 15.3229 18.9021 14.6687 18.9458 13.7107C18.9896 12.7508 19 12.4443 19 10C19 7.55575 18.9896 7.24926 18.9458 6.28935C18.9021 5.33137 18.75 4.67716 18.5275 4.10466C18.2975 3.51283 17.9898 3.01092 17.4894 2.51058C16.9891 2.01025 16.4872 1.70251 15.8953 1.47251C15.3228 1.25001 14.6686 1.09789 13.7107 1.05416C12.7507 1.01036 12.4443 1 9.99998 1ZM9.99998 5.37838C7.44753 5.37838 5.37835 7.44757 5.37835 10C5.37835 12.5525 7.44753 14.6217 9.99998 14.6217C12.5524 14.6217 14.6216 12.5525 14.6216 10C14.6216 7.44757 12.5524 5.37838 9.99998 5.37838ZM9.99998 13C8.34314 13 6.99996 11.6569 6.99996 10C6.99996 8.34317 8.34314 7 9.99998 7C11.6568 7 13 8.34317 13 10C13 11.6569 11.6568 13 9.99998 13ZM15.8842 5.19579C15.8842 5.79226 15.4007 6.27581 14.8042 6.27581C14.2077 6.27581 13.7242 5.79226 13.7242 5.19579C13.7242 4.59931 14.2077 4.1158 14.8042 4.1158C15.4007 4.1158 15.8842 4.59931 15.8842 5.19579Z"
+                                  fill="#00234D" />
+                        </svg>
+                    </div>
+                    <h2 class="section-heading">Our Instagram</h2>
+                    <p class="section-subheading">See Our Latest Products & Catalouges on Our Social Media</p>
+                </div>
+                <div class="instagram-container position-relative mt-48">
+                    <div class="common-slider" data-slick='{
+                                "slidesToShow": 4,
+                                "slidesToScroll": 1,
+                                "dots": false,
+                                "arrows": true,
+                                "responsive": [
+                                  {
+                                    "breakpoint": 1281,
+                                    "settings": {
+                                      "slidesToShow": 3
+                                    }
+                                  },
+                                  {
+                                    "breakpoint": 768,
+                                    "settings": {
+                                      "slidesToShow": 2
+                                    }
+                                  }
+                                ]
+                            }'>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img class="instagram-card-img rounded" src="/Template/assets/img/instagram/1.png" alt="product-img">
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/2.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/3.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/4.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/5.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/6.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-slick-item" data-aos="fade-up" data-aos-duration="700">
+                            <div class="instagram-card">
+                                <a class="instagram-img-wrapper" href="#">
+                                    <img src="/Template/assets/img/instagram/7.png" alt="img"
+                                         class="instagram-card-img rounded">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activate-arrows show-arrows-always article-arrows arrows-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- instagram end -->
+
+    <!-- single banner start -->
+    <div class="single-banner-section mt-100 overflow-hidden" style="border-radius: 20px; box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;" >
+        <div class="position-relative">
+            <img src="~/Template/assets/img/banner/thesingle-banner.png" alt="slide-1" />
+        </div>
+    </div>
+    <!-- single banner end -->
+
+    <!-- brand logo start -->
+    <div class="brand-logo-section mt-100">
+        <div class="brand-logo-inner">
+            <div class="container">
+                <div class="brand-logo-container overflow-hidden">
+                    <div class="scroll-vertical row align-items-center flex-nowrap" style="max-height: 200px; overflow-y: auto;">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/1.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/2.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/3.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/4.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/5.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up"
+                             data-aos-duration="700">
+                            <a href="index-shoe.html"
+                               class="brand-logo d-flex align-items-center justify-content-center">
+                                <img src="/Template/assets/img/brand/6.png" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brand logo end -->
+
+    <!-- newsletter start -->
+    <div class="newsletter-section mt-100 overflow-hidden" style="box-shadow: rgba(17, 12, 46, 0.03) 0px 48px 100px 0px;border-radius:16px;">
+        <div class="newsletter-inner">
+            <div class="position-relative">
+                <img class="single-banner-img" src="/Template/assets/img/newsletter/2.png" alt="slide-1" style="border-radius:20px;height:380px;">
+                <div class="content-absolute">
+                    <div class="container height-inherit d-flex align-items-center justify-content-center">
+                        <div class="content-box py-4">
+                            <div class="newsletter-content newsletter-content-2 text-center">
+                                <div class="newsletter-header">
+                                    <p class="newsletter-subheading heading_24">News Letter</p>
+                                    <h2 class="newsletter-heading heading_42">Subscribe to our newsletter</h2>
+                                </div>
+                                <div class="newsletter-form-wrapper">
+                                    <form action="#" class="newsletter-form d-flex align-items-center rounded">
+                                        <input class="newsletter-input bg-transparent border-0" type="email" placeholder="Enter your e-mail" autocomplete="off">
+                                        <button class="newsletter-btn rounded" type="submit" style="position:relative;left:-20px;">
+                                            <svg width="17" height="14" viewBox="0 0 17 14" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.11539 -0.000488604L7.50417 1.99951L11.5769 5.59951L0.500001 5.59951L0.500001 8.19951L11.7049 8.19951L7.50417 11.4995L8.70513 13.9995L16.5 7.19951L9.11539 -0.000488604Z" fill="#FEFEFE" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newsletter end -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/Template/assets/js/vendor.js"></script>
+    <script src="~/Template/assets/js/main.js"></script>
+</body>

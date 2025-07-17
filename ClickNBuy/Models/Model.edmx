@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClickNBuyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ClickNBuyModelStoreContainer">
+    <EntitySet Name="tbl_admin" EntityType="ClickNBuyModel.Store.tbl_admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_category" EntityType="ClickNBuyModel.Store.tbl_category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_product" EntityType="ClickNBuyModel.Store.tbl_product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_user" EntityType="ClickNBuyModel.Store.tbl_user" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_invoice" EntityType="ClickNBuyModel.Store.tbl_invoice" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_order" EntityType="ClickNBuyModel.Store.tbl_order" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__tbl_categ__ad_id__04E4BC85" Association="ClickNBuyModel.Store.FK__tbl_categ__ad_id__04E4BC85">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_category" EntitySet="tbl_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_categ__ad_id__4CA06362" Association="ClickNBuyModel.Store.FK__tbl_categ__ad_id__4CA06362">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_category" EntitySet="tbl_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_categ__ad_id__71D1E811" Association="ClickNBuyModel.Store.FK__tbl_categ__ad_id__71D1E811">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_category" EntitySet="tbl_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__cat_i__05D8E0BE" Association="ClickNBuyModel.Store.FK__tbl_produ__cat_i__05D8E0BE">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__cat_i__534D60F1" Association="ClickNBuyModel.Store.FK__tbl_produ__cat_i__534D60F1">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__cat_i__72C60C4A" Association="ClickNBuyModel.Store.FK__tbl_produ__cat_i__72C60C4A">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__us_id__06CD04F7" Association="ClickNBuyModel.Store.FK__tbl_produ__us_id__06CD04F7">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__us_id__52593CB8" Association="ClickNBuyModel.Store.FK__tbl_produ__us_id__52593CB8">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__us_id__73BA3083" Association="ClickNBuyModel.Store.FK__tbl_produ__us_id__73BA3083">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_invoi__in_fk__160F4887" Association="ClickNBuyModel.Store.FK__tbl_invoi__in_fk__160F4887">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__o_fk___18EBB532" Association="ClickNBuyModel.Store.FK__tbl_order__o_fk___18EBB532">
+      <End Role="tbl_product" EntitySet="tbl_product" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__o_fk___2739D489" Association="ClickNBuyModel.Store.FK__tbl_order__o_fk___2739D489">
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ad_email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ad_password" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ad_id_fk" Type="int" Nullable="true" />
+    <Property Name="cat_image" Type="varchar(max)" Nullable="true" />
+    <Property Name="cat_status" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbl_product">
+    <Key>
+      <PropertyRef Name="pro_id" />
+    </Key>
+    <Property Name="pro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pro_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="pro_price" Type="int" Nullable="true" />
+    <Property Name="pro_image" Type="varchar(max)" Nullable="false" />
+    <Property Name="pro_desc" Type="varchar(max)" Nullable="true" />
+    <Property Name="u_contact" Type="varchar(max)" Nullable="false" />
+    <Property Name="us_id_fk" Type="int" Nullable="true" />
+    <Property Name="cat_id_fk" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="u_email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="u_password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="u_image" Type="varchar(max)" Nullable="false" />
+    <Property Name="u_contact" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_invoice">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="in_fk_user" Type="int" Nullable="true" />
+    <Property Name="in_date" Type="datetime" Nullable="true" />
+    <Property Name="in_totalbill" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbl_order">
+    <Key>
+      <PropertyRef Name="o_id" />
+    </Key>
+    <Property Name="o_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="o_fk_pro" Type="int" Nullable="true" />
+    <Property Name="o_date" Type="datetime" Nullable="true" />
+    <Property Name="o_totalbill" Type="int" Nullable="true" />
+    <Property Name="o_fk_invoice" Type="int" Nullable="true" />
+    <Property Name="o_qty" Type="int" Nullable="true" />
+    <Property Name="o_unitprice" Type="int" Nullable="true" />
+    <Property Name="o_bill" Type="int" Nullable="true" />
+    <Property Name="u_credit_card_number" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="u_ccv" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="u_pin" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="u_expiry_date" Type="datetime" Nullable="true" />
+  </EntityType>
+  <Association Name="FK__tbl_categ__ad_id__04E4BC85">
+    <End Role="tbl_admin" Type="ClickNBuyModel.Store.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_category">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_categ__ad_id__4CA06362">
+    <End Role="tbl_admin" Type="ClickNBuyModel.Store.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_category">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_categ__ad_id__71D1E811">
+    <End Role="tbl_admin" Type="ClickNBuyModel.Store.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_category">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__cat_i__05D8E0BE">
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="cat_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__cat_i__534D60F1">
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="cat_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__cat_i__72C60C4A">
+    <End Role="tbl_category" Type="ClickNBuyModel.Store.tbl_category" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="cat_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__us_id__06CD04F7">
+    <End Role="tbl_user" Type="ClickNBuyModel.Store.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="us_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__us_id__52593CB8">
+    <End Role="tbl_user" Type="ClickNBuyModel.Store.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="us_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__us_id__73BA3083">
+    <End Role="tbl_user" Type="ClickNBuyModel.Store.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="us_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_invoi__in_fk__160F4887">
+    <End Role="tbl_user" Type="ClickNBuyModel.Store.tbl_user" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="ClickNBuyModel.Store.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="in_fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__o_fk___18EBB532">
+    <End Role="tbl_product" Type="ClickNBuyModel.Store.tbl_product" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="ClickNBuyModel.Store.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_product">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="o_fk_pro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__o_fk___2739D489">
+    <End Role="tbl_invoice" Type="ClickNBuyModel.Store.tbl_invoice" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="ClickNBuyModel.Store.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_invoice">
+        <PropertyRef Name="in_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="o_fk_invoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClickNBuyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_admin">
+          <Key>
+            <PropertyRef Name="ad_id" />
+          </Key>
+          <Property Name="ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ad_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ad_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_categ__ad_id__04E4BC85" FromRole="tbl_admin" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category1" Relationship="Self.FK__tbl_categ__ad_id__4CA06362" FromRole="tbl_admin" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category2" Relationship="Self.FK__tbl_categ__ad_id__71D1E811" FromRole="tbl_admin" ToRole="tbl_category" />
+        </EntityType>
+        <EntityType Name="tbl_category">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ad_id_fk" Type="Int32" />
+          <Property Name="cat_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cat_status" Type="Int32" />
+          <NavigationProperty Name="tbl_admin" Relationship="Self.FK__tbl_categ__ad_id__04E4BC85" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin1" Relationship="Self.FK__tbl_categ__ad_id__4CA06362" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin2" Relationship="Self.FK__tbl_categ__ad_id__71D1E811" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_produ__cat_i__05D8E0BE" FromRole="tbl_category" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product1" Relationship="Self.FK__tbl_produ__cat_i__534D60F1" FromRole="tbl_category" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product2" Relationship="Self.FK__tbl_produ__cat_i__72C60C4A" FromRole="tbl_category" ToRole="tbl_product" />
+        </EntityType>
+        <EntityType Name="tbl_product">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_price" Type="Int32" />
+          <Property Name="pro_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="u_contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="us_id_fk" Type="Int32" />
+          <Property Name="cat_id_fk" Type="Int32" />
+          <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_produ__cat_i__05D8E0BE" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category1" Relationship="Self.FK__tbl_produ__cat_i__534D60F1" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category2" Relationship="Self.FK__tbl_produ__cat_i__72C60C4A" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_user" Relationship="Self.FK__tbl_produ__us_id__06CD04F7" FromRole="tbl_product" ToRole="tbl_user" />
+          <NavigationProperty Name="tbl_user1" Relationship="Self.FK__tbl_produ__us_id__52593CB8" FromRole="tbl_product" ToRole="tbl_user" />
+          <NavigationProperty Name="tbl_user2" Relationship="Self.FK__tbl_produ__us_id__73BA3083" FromRole="tbl_product" ToRole="tbl_user" />
+          <NavigationProperty Name="tbl_order" Relationship="ClickNBuyModel.FK__tbl_order__o_fk___18EBB532" FromRole="tbl_product" ToRole="tbl_order" />
+        </EntityType>
+        <EntityType Name="tbl_user">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_produ__us_id__06CD04F7" FromRole="tbl_user" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product1" Relationship="Self.FK__tbl_produ__us_id__52593CB8" FromRole="tbl_user" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product2" Relationship="Self.FK__tbl_produ__us_id__73BA3083" FromRole="tbl_user" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_invoice" Relationship="ClickNBuyModel.FK__tbl_invoi__in_fk__160F4887" FromRole="tbl_user" ToRole="tbl_invoice" />
+        </EntityType>
+        <Association Name="FK__tbl_categ__ad_id__04E4BC85">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__4CA06362">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__71D1E811">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__05D8E0BE">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__534D60F1">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__72C60C4A">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__us_id__06CD04F7">
+          <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="us_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__us_id__52593CB8">
+          <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="us_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__us_id__73BA3083">
+          <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="us_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClickNBuyEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
+          <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
+          <EntitySet Name="tbl_product" EntityType="Self.tbl_product" />
+          <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+          <AssociationSet Name="FK__tbl_categ__ad_id__04E4BC85" Association="Self.FK__tbl_categ__ad_id__04E4BC85">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__4CA06362" Association="Self.FK__tbl_categ__ad_id__4CA06362">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__71D1E811" Association="Self.FK__tbl_categ__ad_id__71D1E811">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__05D8E0BE" Association="Self.FK__tbl_produ__cat_i__05D8E0BE">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__534D60F1" Association="Self.FK__tbl_produ__cat_i__534D60F1">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__72C60C4A" Association="Self.FK__tbl_produ__cat_i__72C60C4A">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__us_id__06CD04F7" Association="Self.FK__tbl_produ__us_id__06CD04F7">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__us_id__52593CB8" Association="Self.FK__tbl_produ__us_id__52593CB8">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__us_id__73BA3083" Association="Self.FK__tbl_produ__us_id__73BA3083">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <EntitySet Name="tbl_invoice" EntityType="ClickNBuyModel.tbl_invoice" />
+          <EntitySet Name="tbl_order" EntityType="ClickNBuyModel.tbl_order" />
+          <AssociationSet Name="FK__tbl_invoi__in_fk__160F4887" Association="ClickNBuyModel.FK__tbl_invoi__in_fk__160F4887">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___18EBB532" Association="ClickNBuyModel.FK__tbl_order__o_fk___18EBB532">
+            <End Role="tbl_product" EntitySet="tbl_product" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___2739D489" Association="ClickNBuyModel.FK__tbl_order__o_fk___2739D489">
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_invoice">
+          <Key>
+            <PropertyRef Name="in_id" />
+          </Key>
+          <Property Name="in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="in_fk_user" Type="Int32" />
+          <Property Name="in_date" Type="DateTime" Precision="3" />
+          <Property Name="in_totalbill" Type="Int32" />
+          <NavigationProperty Name="tbl_user" Relationship="ClickNBuyModel.FK__tbl_invoi__in_fk__160F4887" FromRole="tbl_invoice" ToRole="tbl_user" />
+          <NavigationProperty Name="tbl_order" Relationship="ClickNBuyModel.FK__tbl_order__o_fk___2739D489" FromRole="tbl_invoice" ToRole="tbl_order" />
+        </EntityType>
+        <EntityType Name="tbl_order">
+          <Key>
+            <PropertyRef Name="o_id" />
+          </Key>
+          <Property Name="o_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="o_fk_pro" Type="Int32" />
+          <Property Name="o_date" Type="DateTime" Precision="3" />
+          <Property Name="o_totalbill" Type="Int32" />
+          <NavigationProperty Name="tbl_product" Relationship="ClickNBuyModel.FK__tbl_order__o_fk___18EBB532" FromRole="tbl_order" ToRole="tbl_product" />
+          <Property Name="o_fk_invoice" Type="Int32" />
+          <Property Name="o_qty" Type="Int32" />
+          <Property Name="o_unitprice" Type="Int32" />
+          <Property Name="o_bill" Type="Int32" />
+          <NavigationProperty Name="tbl_invoice" Relationship="ClickNBuyModel.FK__tbl_order__o_fk___2739D489" FromRole="tbl_order" ToRole="tbl_invoice" />
+          <Property Name="u_credit_card_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_ccv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_pin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="u_expiry_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK__tbl_invoi__in_fk__160F4887">
+          <End Type="ClickNBuyModel.tbl_user" Role="tbl_user" Multiplicity="0..1" />
+          <End Type="ClickNBuyModel.tbl_invoice" Role="tbl_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_invoice">
+              <PropertyRef Name="in_fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_order__o_fk___18EBB532">
+          <End Type="ClickNBuyModel.tbl_product" Role="tbl_product" Multiplicity="0..1" />
+          <End Type="ClickNBuyModel.tbl_order" Role="tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_product">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_order__o_fk___2739D489">
+          <End Type="ClickNBuyModel.tbl_invoice" Role="tbl_invoice" Multiplicity="0..1" />
+          <End Type="ClickNBuyModel.tbl_order" Role="tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_invoice">
+              <PropertyRef Name="in_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_invoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClickNBuyModelStoreContainer" CdmEntityContainer="ClickNBuyEntities2">
+    <EntitySetMapping Name="tbl_admin">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_admin)">
+        <MappingFragment StoreEntitySet="tbl_admin">
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+          <ScalarProperty Name="ad_name" ColumnName="ad_name" />
+          <ScalarProperty Name="ad_email" ColumnName="ad_email" />
+          <ScalarProperty Name="ad_password" ColumnName="ad_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_category)">
+        <MappingFragment StoreEntitySet="tbl_category">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+          <ScalarProperty Name="cat_image" ColumnName="cat_image" />
+          <ScalarProperty Name="cat_status" ColumnName="cat_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_product">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_product)">
+        <MappingFragment StoreEntitySet="tbl_product">
+          <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="pro_price" ColumnName="pro_price" />
+          <ScalarProperty Name="pro_image" ColumnName="pro_image" />
+          <ScalarProperty Name="pro_desc" ColumnName="pro_desc" />
+          <ScalarProperty Name="u_contact" ColumnName="u_contact" />
+          <ScalarProperty Name="us_id_fk" ColumnName="us_id_fk" />
+          <ScalarProperty Name="cat_id_fk" ColumnName="cat_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_user)">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_image" ColumnName="u_image" />
+          <ScalarProperty Name="u_contact" ColumnName="u_contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_invoice">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_invoice)">
+        <MappingFragment StoreEntitySet="tbl_invoice">
+          <ScalarProperty Name="in_id" ColumnName="in_id" />
+          <ScalarProperty Name="in_fk_user" ColumnName="in_fk_user" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="in_totalbill" ColumnName="in_totalbill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_order">
+      <EntityTypeMapping TypeName="IsTypeOf(ClickNBuyModel.tbl_order)">
+        <MappingFragment StoreEntitySet="tbl_order">
+          <ScalarProperty Name="o_id" ColumnName="o_id" />
+          <ScalarProperty Name="o_fk_pro" ColumnName="o_fk_pro" />
+          <ScalarProperty Name="o_date" ColumnName="o_date" />
+          <ScalarProperty Name="o_totalbill" ColumnName="o_totalbill" />
+          <ScalarProperty Name="o_fk_invoice" ColumnName="o_fk_invoice" />
+          <ScalarProperty Name="o_qty" ColumnName="o_qty" />
+          <ScalarProperty Name="o_unitprice" ColumnName="o_unitprice" />
+          <ScalarProperty Name="o_bill" ColumnName="o_bill" />
+          <ScalarProperty Name="u_credit_card_number" ColumnName="u_credit_card_number" />
+          <ScalarProperty Name="u_ccv" ColumnName="u_ccv" />
+          <ScalarProperty Name="u_pin" ColumnName="u_pin" />
+          <ScalarProperty Name="u_expiry_date" ColumnName="u_expiry_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="1031d553224a4c369504fbc4ccf89b2f" Name="Diagram1">
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_admin" Width="1.5" PointX="1.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_product" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_user" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_invoice" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClickNBuyModel.tbl_order" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_categ__ad_id__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_categ__ad_id__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_categ__ad_id__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__cat_i__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__cat_i__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__cat_i__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__us_id__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__us_id__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_produ__us_id__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_invoi__in_fk__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_order__o_fk___18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="ClickNBuyModel.FK__tbl_order__o_fk___2739D489" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

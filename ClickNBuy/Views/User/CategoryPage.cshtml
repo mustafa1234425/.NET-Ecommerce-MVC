@@ -1,0 +1,222 @@
+﻿
+@using PagedList.Mvc
+@model PagedList.IPagedList<ClickNBuy.Models.tbl_category>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/90a0d7efa7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emoji-datasource-apple/15.0.0/emoji.json" />
+    <title>Shopio Choose Your Category for Checkout!</title>
+    <style>
+        :root {
+            --primary-color: #F76B6A;
+            --secondary-color: #F76B6A;
+            --btn-primary-border-radius: 0.25rem;
+            --btn-primary-color: #fff;
+            --btn-primary-background-color: #F76B6A;
+            --btn-primary-border-color: #F76B6A;
+            --btn-primary-hover-color: #fff;
+            --btn-primary-background-hover-color: #F76B6A;
+            --btn-primary-border-hover-color: #F76B6A;
+            --btn-primary-font-weight: 500;
+            --btn-secondary-border-radius: 0.25rem;
+            --btn-secondary-color: #00234D;
+            --btn-secondary-background-color: transparent;
+            --btn-secondary-border-color: #00234D;
+            --btn-secondary-hover-color: #fff;
+            --btn-secondary-background-hover-color: #F76B6A;
+            --btn-secondary-border-hover-color: #F76B6A;
+            --btn-secondary-font-weight: 500;
+            --heading-color: #000;
+            --heading-font-family: 'Poppins', sans-serif;
+            --heading-font-weight: 700;
+            --title-color: #000;
+            --title-font-family: 'Poppins', sans-serif;
+            --title-font-weight: 400;
+            --body-color: #000;
+            --body-background-color: #fff;
+            --body-font-family: 'Poppins', sans-serif;
+            --body-font-size: 14px;
+            --body-font-weight: 400;
+            --section-heading-color: #000;
+            --section-heading-font-family: 'Poppins', sans-serif;
+            --section-heading-font-size: 48px;
+            --section-heading-font-weight: 600;
+            --section-subheading-color: #000;
+            --section-subheading-font-family: 'Poppins', sans-serif;
+            --section-subheading-font-size: 16px;
+            --section-subheading-font-weight: 400;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Remove horizontal scrollbar */
+        }
+
+        h4 {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            box-shadow: rgba(149, 157, 165, 0.1) 0px 2px 20px;
+            border-color: white;
+            transition: 0.2s;
+        }
+
+            .card:hover {
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            }
+
+        .slideshow-section {
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: -15px;
+            width: 100vw;
+            overflow: hidden; /* Hide any overflowing content */
+        }
+
+        .slide-item {
+            width: 100%;
+        }
+
+        #thefirstlink {
+            color: black;
+            background-color: white;
+            border: none;
+        }
+
+            #thefirstlink:hover {
+                background-color: #F76B6A;
+                color: white;
+                border-color: #F76B6A;
+            }
+
+        .newsletter-btn {
+            position: relative;
+            left: 180px;
+            background-color: #F76B6A;
+        }
+
+        .scroll-vertical {
+            overflow-y: auto;
+            max-height: 200px;
+        }
+
+            .scroll-vertical::-webkit-scrollbar {
+                width: 0.1rem;
+            }
+
+            .scroll-vertical::-webkit-scrollbar-track {
+                background-color: #ffffff; /* white */
+            }
+
+            .scroll-vertical::-webkit-scrollbar-thumb {
+                background-color: rgba(149, 157, 165, 0.1);
+                border-radius: 5px;
+            }
+    </style>
+</head>
+<body>
+    <main id="MainContent" class="content-for-layout">
+    <!-- collection start -->
+    <div class="featured-collection mt-100 overflow-hidden">
+        <div class="collection-tab-inner">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h1 class="section-heading overflow-hidden" style="margin-bottom:34px;margin-top:5px;">Choose Your Category<span style="position:relative;bottom:3px;"><img src="/Template/assets/img/emoji/smileface.png" height="50" width="50"/></span> </h1>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a href="@Url.Action("Create_Ad", "User")" class="btn-primary" style="margin-bottom:25px;margin-top:25px;background-color:#F76B6A;outline:none;border:none">Create Your Ad</a>
+                </div>
+
+                @{
+                    var categoryList = new SelectList(Model, "cat_id", "cat_name");
+                }
+
+                @using (Html.BeginForm("DisplayAdd", "User", FormMethod.Post))
+                {
+                    <div class="text-center">
+                        <div class="dropdown" style="display: inline-block; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border-radius: 8px;">
+                            @Html.DropDownList("id", categoryList, "Select a category", new { @class = "form-control", @style = "border-color:white;height:40px;" })
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="background-color:#F76B6A">Go</button>
+                    </div>
+                }
+
+                <div class="row">
+                    @if (Model != null)
+                    {
+
+                        foreach (var item in Model)
+                        {   
+                            <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
+                                <div class="product-card">
+                                    <div class="product-card-img">
+                                        <a class="hover-switch" href="@Url.Action("DisplayAdd", "User", new { id = item.cat_id })">
+                                            <img class="secondary-img rounded-3" src="@Url.Content(item.cat_image)" alt="product-img">
+                                            <img class="primary-img rounded-3" src="@Url.Content(item.cat_image)" alt="product-img">
+                                        </a>
+
+                                        <div class="product-card-action product-card-action-2 justify-content-center">
+                                            <!-- Action buttons -->
+                                        </div>
+                                    </div>
+                                    <div class="product-card-details">
+                                        <ul class="color-lists list-unstyled d-flex align-items-center">
+                                            <!-- Color lists -->
+                                        </ul>
+                                        <h3 class="product-card-title">
+                                            <a href="collection-left-sidebar.html">@Html.ActionLink(item.cat_name, "DisplayAdd", new { id = item.cat_id }, new { style = "text-decoration:none;color:#001629;" })</a>
+                                        </h3>
+                                        <div class="product-card-price">
+                                            <span class="card-price-regular">NEW</span>
+                                            <span class="card-price-compare text-decoration-line-through">OUTOFSTOCK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+        </main>
+
+    <!-- collection end -->
+    <nav aria-label="..." style="margin-top: 50px;">
+            <ul class="pagination pagination-md justify-content-center">
+                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                    <a class="page-link" href="@Url.Action("CategoryPage", new { page = Model.PageNumber - 1 })" id="thefirstlink">Previous</a>
+                </li>
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                        <a class="page-link" href="@Url.Action("CategoryPage", new { page = i })" id="thefirstlink">@i</a>
+                    </li>
+                }
+                <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                    <a class="page-link" href="@Url.Action("CategoryPage", new { page = Model.PageNumber + 1 })" id="thefirstlink">Next</a>
+                </li>
+            </ul>
+     </nav>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/Template/assets/js/vendor.js"></script>
+    <script src="~/Template/assets/js/main.js"></script>
+</body>
